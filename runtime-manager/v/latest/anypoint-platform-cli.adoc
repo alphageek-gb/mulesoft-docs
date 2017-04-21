@@ -10,7 +10,7 @@ image:logo-pcf-disabled.png[link="/runtime-manager/deployment-strategies", title
 Anypoint Platform provides you a command line tool to interact with:
 
 * Your applications on CloudHub
-* link:/runtime-manager/virtual-private-cloud[VPCs]
+* link:/runtime-manager/vpc-about[VPCs]
 * link:/runtime-manager/cloudhub-dedicated-load-balancer[Cloudhub load balancers]
 * link:/api-manager/[API Manager]
 
@@ -690,9 +690,6 @@ If the Anypoint Platform CLI is using the Services organization, the command can
 > api-mgr definition copy api-1/1.0 Development/api-1/1.0
 ----
 
-[NOTE]
-For API Manager installations in Anypoint Private Cloud Edition, this command requires read/write access to the `/tmp` directory in your on-premises server
-
 This command does not take any options, except for the default ones: `--help`, `-f`/`--fields` and `-o`/`--output`.
 
 === api-mgr definition download
@@ -816,9 +813,6 @@ If the Anypoint Platform CLI is using the Services organization, the command can
 ----
 > api-mgr definition copy api-1/1.0 Development/api-1/1.0
 ----
-
-[NOTE]
-For API Manager installations in Anypoint Private Cloud Edition, this command requires read/write access to the `/tmp` directory in your on-premises server
 
 This command does not take any options, except for the default ones: `--help`, `-f`/`--fields` and `-o`/`--output`.
 
@@ -951,9 +945,6 @@ If the Anypoint Platform CLI is using the Services organization, the command can
 > api-mgr portal copy api-1/1.0 Development/api-1/1.0
 ----
 
-[NOTE]
-For API Manager installations in Anypoint Private Cloud Edition, this command requires read/write access to the `/tmp` directory in your on-premises server
-
 This command does not take any options, except for the default ones: `--help`, `-f`/`--fields` and `-o`/`--output`.
 
 
@@ -1038,9 +1029,6 @@ If the Anypoint Platform CLI is using the Services organization, the command can
 ----
 > api-mgr tiers copy api-1/1.0 Development/api-1/1.0
 ----
-
-[NOTE]
-For API Manager installations in Anypoint Private Cloud Edition, this command requires read/write access to the `/tmp` directory in your on-premises server
 
 This command does not take any options, except for the default ones: `--help`, `-f`/`--fields` and `-o`/`--output`.
 
@@ -1374,6 +1362,9 @@ If the Anypoint Platform CLI is using the QA environment in the Services organiz
 > runtime-mgr cloudhub-application copy application-1 Development/QA/application-2
 ----
 
+[NOTE]
+Running this command requires for your user to have read/write access to the `/tmp` directory in your machine.
+
 This command does not take any options, except for the default ones: `--help`, `-f`/`--fields` and `-o`/`--output`.
 
 === runtime-mgr standalone-application artifact
@@ -1502,7 +1493,7 @@ If the Anypoint Platform CLI is using the QA environment in the Services organiz
 ----
 
 [NOTE]
-This command requires read/write access to the `/tmp` directory in your on-premises server
+Running this command requires for your user to have read/write access to the `/tmp` directory in your machine.
 
 This command does not take any options, except for the default ones: `--help`, `-f`/`--fields` and `-o`/`--output`.
 
@@ -2243,7 +2234,7 @@ This command does not take any options, except for the default ones: `--help`, `
 ----
 > cloudhub vpc create [options] <name> <region> <cidrBlock> [environments...]
 ----
-This command creates a VPC using the name in <name>, in the region specified in <region>, with the link:/runtime-manager/virtual-private-cloud#size-your-vpc[size] passed in <cidrBlock> in the form of a Classless Inter-Domain Routing (CIDR) block, using link:https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks[CIDR notation] and associates it to the link:/access-management/environments[environment] passed in `--environments`.
+This command creates a VPC using the name in <name>, in the region specified in <region>, with the link:/runtime-manager/vpc-size-about[size] passed in <cidrBlock> in the form of a Classless Inter-Domain Routing (CIDR) block, using link:https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks[CIDR notation] and associates it to the link:/access-management/environments[environment] passed in `--environments`.
 
 [NOTE]
 A VPC needs to be bound to a business group within your organization. When creating a VPC, make sure to assign it a business group using the <<cloudhub vpc business-groups add, business-groups add>> command.
